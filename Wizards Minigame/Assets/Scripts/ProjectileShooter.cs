@@ -5,7 +5,7 @@ using UnityEngine;
 //Responsible for shooting projectiles.
 public class ProjectileShooter : MonoBehaviour {
 
-    public Projectile fireball;
+    public Projectile projectile;
 
     public float fireCooldown;
 
@@ -26,7 +26,7 @@ public class ProjectileShooter : MonoBehaviour {
 
     void Fire()
     {
-        Projectile instance = Instantiate(fireball, transform.position, Quaternion.identity);
+        Projectile instance = Instantiate(projectile, transform.position, Quaternion.identity);
         instance.InitProjectile(fireDir, 1, gameObject.tag);
         instance.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles);
     }
