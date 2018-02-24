@@ -11,8 +11,7 @@ public class ProjectileShooter : MonoBehaviour {
 
     public Vector2 fireDir;
 
-	// Use this for initialization
-	void Start () {
+	public void Start () {
         StartCoroutine(ShootingRoutine());
 	}
 

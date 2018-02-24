@@ -6,9 +6,9 @@ using UnityEngine.UI;
 //Responsible for handling the game over gui - activated from the GameManager
 public class ShowGameOver : MonoBehaviour {
 
-    Text winText;
+    public Text winText;
 
-    public void Start()
+    void Awake()
     {
         gameObject.SetActive(false);
     }

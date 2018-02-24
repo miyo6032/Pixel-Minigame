@@ -8,15 +8,16 @@ public class HitProjectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!GameManager.instance.GameOver())
-            if (other.gameObject.tag == "Projectile")
+        if (other.gameObject.tag == "Projectile")
+        {
+            Projectile incoming = other.gameObject.GetComponent<Projectile>();
+            if (incoming.playerTag != gameObject.tag)//Used to make sure the player doens't hit itself
             {
-                Projectile incoming = other.gameObject.GetComponent<Projectile>();
-                if (incoming.playerTag != gameObject.tag)//Used to make sure the player doens't hit itself
-                {
-                    incoming.Impact();
-                }
+                if (!GameManager.instance.GameOver())
+                    GameManager.instance.EndGame(gameObject.tag);
+                incoming.Impact();
             }
+        }
     }
 
 }

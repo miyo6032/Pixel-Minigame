@@ -23,5 +23,10 @@ public class PlayerMovement : MonoBehaviour {
 
             player2.velocity = new Vector2(horz2, vert2) * baseMoveSpeed;
         }
+        else
+        {
+            player1.velocity = Vector2.zero;
+            player2.velocity = Vector2.zero;
+        }
     }
 }
