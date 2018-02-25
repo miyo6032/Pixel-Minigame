@@ -13,16 +13,26 @@ public class ProjectileShooter : MonoBehaviour {
 
     PlayerStats playerStats;
 
+    Rigidbody2D rb;
+
 	public void Start () {
         playerStats = GetComponent<PlayerStats>();
+        rb = GetComponent<Rigidbody2D>();
         StartCoroutine(ShootingRoutine());
-	}
+    }
 
     IEnumerator ShootingRoutine()
     {
         while (!GameManager.instance.GameOver())
         {
-            Fire();
+            if (playerStats.Trishot()) {
+                Trishot();
+            }
+            else
+            {
+                Quaternion angle = Quaternion.AngleAxis(rotation, Vector3.forward);
+                Fire(angle);
+            }
             for (int i = 0; i < coroutineRes; i++)
             {
                 yield return new WaitForSeconds(playerStats.fireCooldown / coroutineRes);
@@ -35,17 +45,23 @@ public class ProjectileShooter : MonoBehaviour {
         for(int i = 0; i < 36; i++)
         {
             Quaternion angle = Quaternion.AngleAxis(i * 10, Vector3.forward);
-            Projectile instance = Instantiate(projectile, transform.position, angle);
-            instance.InitProjectile(angle, playerStats.fireSpeed, gameObject.tag);
-            instance.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles);
+            Fire(angle);
         }
     }
 
-    void Fire()
+    public void Trishot()
     {
-        Quaternion angle = Quaternion.AngleAxis(rotation, Vector3.forward);
+        for (int i = 0; i < 3; i++)
+        {
+            Quaternion angle = Quaternion.AngleAxis(rotation - 15 + i * 15, Vector3.forward);
+            Fire(angle);
+        }
+    }
+
+    void Fire(Quaternion angle)
+    {
         Projectile instance = Instantiate(projectile, transform.position, Quaternion.identity);
-        instance.InitProjectile(angle, playerStats.fireSpeed, gameObject.tag);
+        instance.InitProjectile(angle, playerStats.fireSpeed, gameObject.tag, new Vector2(0, rb.velocity.y * 0.5f));
         instance.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles);
     }
 

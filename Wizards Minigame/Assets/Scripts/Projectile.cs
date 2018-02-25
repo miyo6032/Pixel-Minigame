@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour {
     Rigidbody2D rb;
 
     //Required to call this method to initialize all neccessary attributes of the probjectile. 
-    public void InitProjectile(Quaternion dir, float speedFactor, string tag)
+    public void InitProjectile(Quaternion dir, float speedFactor, string tag, Vector2 initialVelocity)
     {
         rb = GetComponent<Rigidbody2D>();
         initialAcceleration *= speedFactor;
@@ -24,6 +24,7 @@ public class Projectile : MonoBehaviour {
         transform.rotation = dir;
         float bulletRotation = transform.rotation.eulerAngles.z;
         direction = new Vector2(Mathf.Cos(bulletRotation * Mathf.Deg2Rad), Mathf.Sin(bulletRotation * Mathf.Deg2Rad));
+        rb.velocity = initialVelocity;
     }
 
     void FixedUpdate()

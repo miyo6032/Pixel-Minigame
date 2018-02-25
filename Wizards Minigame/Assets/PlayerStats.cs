@@ -11,6 +11,23 @@ public class PlayerStats : MonoBehaviour {
 
     float fireCooldownEffect = 3;
     float fireSpeedPowerupEffect = 3;
+    bool trishotEffect = false;
+
+    public bool Trishot()
+    {
+        return trishotEffect;
+    }
+
+    public void ActivateTrishot()
+    {
+        trishotEffect = true;
+        Invoke("DeactivateTrishot", powerupTime);
+    }
+
+    public void DeactivateTrishot()
+    {
+        trishotEffect = false;
+    }
 
     public void FireCooldownUp()
     {

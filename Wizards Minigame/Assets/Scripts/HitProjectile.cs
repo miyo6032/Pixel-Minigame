@@ -42,6 +42,11 @@ public class HitProjectile : MonoBehaviour
             projectileShooter.Starburst();
             Destroy(other.gameObject);
         }
+        else if(other.gameObject.tag == "Trishot")
+        {
+            playerStats.ActivateTrishot();
+            Destroy(other.gameObject);
+        }
     }
 
 }
