@@ -23,7 +23,10 @@ public class HitProjectile : MonoBehaviour
             if (incoming.playerTag != gameObject.tag)//Used to make sure the player doens't hit itself
             {
                 if (!GameManager.instance.GameOver())
+                {
                     GameManager.instance.EndGame(gameObject.tag);
+                    gameObject.SetActive(false);
+                }
                 incoming.Impact();
             }
         }

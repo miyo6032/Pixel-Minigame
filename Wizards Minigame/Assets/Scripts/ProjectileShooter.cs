@@ -23,6 +23,10 @@ public class ProjectileShooter : MonoBehaviour {
 
     IEnumerator ShootingRoutine()
     {
+        while (GameManager.instance.GameOver())
+        {
+            yield return null;
+        }
         while (!GameManager.instance.GameOver())
         {
             if (playerStats.Trishot()) {

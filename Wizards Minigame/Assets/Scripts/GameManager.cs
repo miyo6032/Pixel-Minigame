@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour {
 
     public ShowGameOver winloseCanvas;
 
-    bool gameOver = false;
+    bool gameOver = true;
 
 	void Start () {
 		if(instance == null)
@@ -29,6 +29,16 @@ public class GameManager : MonoBehaviour {
 
         playerMovement = GetComponent<PlayerMovement>();
 	}
+
+    public void StartGame()
+    {
+        gameOver = false;
+    }
+
+    public void ExitGame()
+    {
+        SceneManager.LoadScene(0);
+    }
 
     //Used by many classes to check whether they should be active or not
     public bool GameOver()
@@ -51,7 +61,7 @@ public class GameManager : MonoBehaviour {
 
     public void Restart()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
 }
