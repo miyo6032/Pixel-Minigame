@@ -8,6 +8,8 @@ TagManager:
   - Player1
   - Player2
   - ProjectileBound
+  - Fire Cooldown Up
+  - Fire Speed Up
   layers:
   - Default
   - TransparentFX
@@ -50,4 +52,7 @@ TagManager:
     locked: 0
   - name: Projectile
     uniqueID: 818650201
+    locked: 0
+  - name: Powerup
+    uniqueID: 4192323273
     locked: 0

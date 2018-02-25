@@ -6,6 +6,13 @@ using UnityEngine;
 public class HitProjectile : MonoBehaviour
 {
 
+    PlayerStats playerStats;
+
+    void Start()
+    {
+        playerStats = GetComponent<PlayerStats>();
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Projectile")
@@ -17,6 +24,16 @@ public class HitProjectile : MonoBehaviour
                     GameManager.instance.EndGame(gameObject.tag);
                 incoming.Impact();
             }
+        }
+        else if(other.gameObject.tag == "Fire Cooldown Up")
+        {
+            playerStats.FireCooldownUp();
+            Destroy(other.gameObject);
+        }
+        else if(other.gameObject.tag == "Fire Speed Up")
+        {
+            playerStats.FireSpeedUp();
+            Destroy(other.gameObject);
         }
     }
 

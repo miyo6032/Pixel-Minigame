@@ -7,11 +7,14 @@ public class ProjectileShooter : MonoBehaviour {
 
     public Projectile projectile;
 
-    public float fireCooldown;
-
     public Vector2 fireDir;
 
+    int coroutineRes = 10;
+
+    PlayerStats playerStats;
+
 	public void Start () {
+        playerStats = GetComponent<PlayerStats>();
         StartCoroutine(ShootingRoutine());
 	}
 
@@ -20,14 +23,17 @@ public class ProjectileShooter : MonoBehaviour {
         while (!GameManager.instance.GameOver())
         {
             Fire();
-            yield return new WaitForSeconds(fireCooldown);
+            for (int i = 0; i < coroutineRes; i++)
+            {
+                yield return new WaitForSeconds(playerStats.fireCooldown / coroutineRes);
+            }
         }
     }
 
     void Fire()
     {
         Projectile instance = Instantiate(projectile, transform.position, Quaternion.identity);
-        instance.InitProjectile(fireDir, 1, gameObject.tag);
+        instance.InitProjectile(fireDir, playerStats.fireSpeed, gameObject.tag);
         instance.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles);
     }
 
