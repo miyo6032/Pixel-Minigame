@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Moves the powerup
 public class PowerupMovement : MonoBehaviour {
 
     Rigidbody2D rb;

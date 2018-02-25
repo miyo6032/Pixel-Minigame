@@ -27,6 +27,7 @@ public class HitProjectile : MonoBehaviour
                 incoming.Impact();
             }
         }
+        //The rest of these if statements handle powerup collision
         else if(other.gameObject.tag == "Fire Cooldown Up")
         {
             playerStats.FireCooldownUp();

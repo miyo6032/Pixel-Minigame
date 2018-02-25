@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Responsible for spawning the powerups in the game
 public class PowerupSpawner : MonoBehaviour
 {
-
     public GameObject[] powerupPrefabs;
 
     public int arenaSize;
@@ -25,6 +24,8 @@ public class PowerupSpawner : MonoBehaviour
         }
     }
 
+    //Spawns powerups starting at either the top or bottom of the arena. Then calculates the correct direction the powerup should
+    //face in order to move in the right direction.
     void SpawnPowerups()
     {
         GameObject toInstantiate = powerupPrefabs[Random.Range(0, powerupPrefabs.Length)];

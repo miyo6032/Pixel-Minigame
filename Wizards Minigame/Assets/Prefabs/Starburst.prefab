@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212902224858795050}
   - component: {fileID: 50924830395790274}
   - component: {fileID: 61651447659181954}
+  - component: {fileID: 114184279913062402}
   m_Layer: 0
   m_Name: Starburst
   m_TagString: Starburst
@@ -56,7 +57,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -87,6 +88,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114184279913062402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1176306687509072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f234e044c9c064d9d874a30315bdc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 10
+  initialAcceleration: 5
 --- !u!212 &212902224858795050
 SpriteRenderer:
   m_ObjectHideFlags: 1

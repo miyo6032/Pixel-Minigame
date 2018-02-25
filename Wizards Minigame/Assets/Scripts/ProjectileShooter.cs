@@ -40,6 +40,7 @@ public class ProjectileShooter : MonoBehaviour {
         }
     }
 
+    //Shoots a circle of bullets
     public void Starburst()
     {
         for(int i = 0; i < 36; i++)
@@ -49,6 +50,7 @@ public class ProjectileShooter : MonoBehaviour {
         }
     }
 
+    //Shoots three bullets 15 degrees apart
     public void Trishot()
     {
         for (int i = 0; i < 3; i++)
@@ -58,6 +60,7 @@ public class ProjectileShooter : MonoBehaviour {
         }
     }
 
+    //Fires 1 bullet
     void Fire(Quaternion angle)
     {
         Projectile instance = Instantiate(projectile, transform.position, Quaternion.identity);

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212021501876217974}
   - component: {fileID: 50295966356783894}
   - component: {fileID: 61072185119054018}
+  - component: {fileID: 114361231005317952}
   m_Layer: 0
   m_Name: FireCooldownUp
   m_TagString: Fire Cooldown Up
@@ -56,7 +57,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -87,6 +88,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114361231005317952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1874735851819816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f234e044c9c064d9d874a30315bdc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 10
+  initialAcceleration: 5
 --- !u!212 &212021501876217974
 SpriteRenderer:
   m_ObjectHideFlags: 1

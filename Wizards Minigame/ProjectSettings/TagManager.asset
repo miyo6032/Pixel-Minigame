@@ -11,6 +11,7 @@ TagManager:
   - Fire Cooldown Up
   - Fire Speed Up
   - Starburst
+  - Trishot
   layers:
   - Default
   - TransparentFX

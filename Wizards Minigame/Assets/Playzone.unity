@@ -5407,9 +5407,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerupPrefabs:
+  - {fileID: 1319891421573676, guid: fba613574d59d1c49b6a2ab7ef69e314, type: 2}
   - {fileID: 1176306687509072, guid: 78c5c96a207cef84b8692391640747a9, type: 2}
+  - {fileID: 1951126042087940, guid: 06b15ea6e7f8a8241bf6c7c177d068db, type: 2}
+  - {fileID: 1874735851819816, guid: 1ec54320075ce0c418d082a0a27ad85c, type: 2}
   arenaSize: 12
-  arenaHeight: 9
+  arenaHeight: 10
 --- !u!1 &936953949
 GameObject:
   m_ObjectHideFlags: 0
@@ -5740,7 +5743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6021,7 +6024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
