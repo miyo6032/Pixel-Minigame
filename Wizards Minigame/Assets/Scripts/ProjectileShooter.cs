@@ -7,7 +7,7 @@ public class ProjectileShooter : MonoBehaviour {
 
     public Projectile projectile;
 
-    public Vector2 fireDir;
+    public float rotation;
 
     int coroutineRes = 10;
 
@@ -30,10 +30,22 @@ public class ProjectileShooter : MonoBehaviour {
         }
     }
 
+    public void Starburst()
+    {
+        for(int i = 0; i < 36; i++)
+        {
+            Quaternion angle = Quaternion.AngleAxis(i * 10, Vector3.forward);
+            Projectile instance = Instantiate(projectile, transform.position, angle);
+            instance.InitProjectile(angle, playerStats.fireSpeed, gameObject.tag);
+            instance.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles);
+        }
+    }
+
     void Fire()
     {
+        Quaternion angle = Quaternion.AngleAxis(rotation, Vector3.forward);
         Projectile instance = Instantiate(projectile, transform.position, Quaternion.identity);
-        instance.InitProjectile(fireDir, playerStats.fireSpeed, gameObject.tag);
+        instance.InitProjectile(angle, playerStats.fireSpeed, gameObject.tag);
         instance.transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles);
     }
 

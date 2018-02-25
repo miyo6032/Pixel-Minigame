@@ -10,6 +10,7 @@ TagManager:
   - ProjectileBound
   - Fire Cooldown Up
   - Fire Speed Up
+  - Starburst
   layers:
   - Default
   - TransparentFX

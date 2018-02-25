@@ -10,18 +10,20 @@ public class Projectile : MonoBehaviour {
 
     public string playerTag;
 
-    Rigidbody2D rb;
-
     Vector2 direction;
 
+    Rigidbody2D rb;
+
     //Required to call this method to initialize all neccessary attributes of the probjectile. 
-    public void InitProjectile(Vector2 dir, float speedFactor, string tag)
+    public void InitProjectile(Quaternion dir, float speedFactor, string tag)
     {
         rb = GetComponent<Rigidbody2D>();
         initialAcceleration *= speedFactor;
         maxSpeed *= speedFactor;
         playerTag = tag;
-        direction  = dir;
+        transform.rotation = dir;
+        float bulletRotation = transform.rotation.eulerAngles.z;
+        direction = new Vector2(Mathf.Cos(bulletRotation * Mathf.Deg2Rad), Mathf.Sin(bulletRotation * Mathf.Deg2Rad));
     }
 
     void FixedUpdate()
@@ -39,7 +41,7 @@ public class Projectile : MonoBehaviour {
     }
 
     //Destroy when the projectile goes out of bounds
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "ProjectileBound")
         {

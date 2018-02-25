@@ -7,10 +7,12 @@ public class HitProjectile : MonoBehaviour
 {
 
     PlayerStats playerStats;
+    ProjectileShooter projectileShooter;
 
     void Start()
     {
         playerStats = GetComponent<PlayerStats>();
+        projectileShooter = GetComponent<ProjectileShooter>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -33,6 +35,11 @@ public class HitProjectile : MonoBehaviour
         else if(other.gameObject.tag == "Fire Speed Up")
         {
             playerStats.FireSpeedUp();
+            Destroy(other.gameObject);
+        }
+        else if(other.gameObject.tag == "Starburst")
+        {
+            projectileShooter.Starburst();
             Destroy(other.gameObject);
         }
     }
